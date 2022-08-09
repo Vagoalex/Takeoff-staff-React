@@ -1,0 +1,57 @@
+@import './reset.scss';
+@import './normalize.scss';
+@import './fonts.scss';
+@import './variables.scss';
+@import './mixins.scss';
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Oswald', 'Roboto Condensed', 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  height: 100vh;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+
+  color: #000;
+  @include crossBrowser(transition, all 0.2s ease);
+}
+
+header {
+  z-index: 10;
+}
+section {
+  z-index: 5;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+
+  @include crossBrowser(transition, all 0.5s ease);
+
+  @media (max-width: $media-laptops) {
+    width: 965px;
+  }
+  @media (max-width: $media-small-desktops) {
+    width: 650px;
+  }
+  @media (max-width: $media-tablets) {
+    width: 410px;
+  }
+  @media (max-width: $media-phones) {
+    width: 350px;
+  }
+  @media (max-width: $media-small-phones) {
+    width: 315px;
+  }
+}
