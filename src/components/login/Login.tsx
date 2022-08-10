@@ -15,7 +15,7 @@ const Login = () => {
     const person = users.filter(
       (u) => u?.user?.username === username && u?.user?.password === password
     );
-    person[0];
+    // person[0];
 
     // setIsAuth;
     // setAuthUser;
