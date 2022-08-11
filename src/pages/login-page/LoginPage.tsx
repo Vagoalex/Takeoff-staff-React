@@ -1,11 +1,12 @@
-// import { Login } from 'components/Login';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import SignIn from '../../components/sign-in/SignIn';
 
-const LoginPage = () => {
+const LoginPage: FC = () => {
   return (
     <div>
       <h1>Login</h1>
-      {/* <Login /> */}
+      <SignIn />
       <p>
         Or <Link to='/register'>register</Link>
       </p>

@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { RootState } from 'store';
-import showToast from 'components/helpers/showToast';
-import LoginForm from 'components/login-form/LoginForm';
+import showToast from 'helpers/showToast';
+import Form from 'components/form/Form';
 import { toast, TypeOptions } from 'react-toastify';
+import { setIsAuth, setAuthUser } from 'store/reducers/auth/authSlice';
 
-const Login = () => {
+const SignIn = () => {
   const dispatch = useAppDispatch();
   const history = useNavigate();
 
@@ -15,21 +16,24 @@ const Login = () => {
     const person = users.filter(
       (u) => u?.user?.username === username && u?.user?.password === password
     );
-    person[0];
-
-    // setIsAuth;
-    // setAuthUser;
-    // history('/contacts');
+    if (person[0]) {
+      dispatch(setAuthUser({ username, password }));
+      dispatch(setIsAuth(true));
+      history('/contacts');
+    } else {
+      console.log('данного юзера не существует!');
+      console.log('модалка, не желаете ли вы зарегаться?');
+    }
   };
 
   return (
     <>
-      <LoginForm title='Войти' handleClick={handleLogin} />
+      <Form title='Войти' handleClick={handleLogin} />
     </>
   );
 };
 
-export default Login;
+export default SignIn;
 
 //  person[0]
 //    ? addNotification('success', `Добро пожаловать, ${username} `)

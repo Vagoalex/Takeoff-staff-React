@@ -5,7 +5,7 @@ interface FormProps {
   handleClick: (username: string, password: string) => void;
 }
 
-const LoginForm: FC<FormProps> = ({ title, handleClick }) => {
+const Form: FC<FormProps> = ({ title, handleClick }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,4 +28,4 @@ const LoginForm: FC<FormProps> = ({ title, handleClick }) => {
   );
 };
 
-export default LoginForm;
+export default Form;

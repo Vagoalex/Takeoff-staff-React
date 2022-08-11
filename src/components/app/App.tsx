@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AppRoutes from 'components/app-routes/AppRoutes';
-import Login from 'components/login/Login';
+import AppRoutes from 'routes/AppRoutes';
 import { ToastContainer } from 'react-toastify';
 
 import './App.scss';
@@ -9,11 +8,11 @@ import './App.scss';
 const App: FC = () => {
   return (
     <div className='App'>
-      {/* <Router>
+      <Router>
         <AppRoutes />
-      </Router> */}
-      <Login />
-      <ToastContainer
+      </Router>
+
+      {/* <ToastContainer
         position='bottom-center'
         autoClose={2000}
         hideProgressBar={false}
@@ -23,7 +22,7 @@ const App: FC = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
+      /> */}
     </div>
   );
 };
