@@ -10,9 +10,6 @@ interface FormProps {
 }
 
 const Form: FC<FormProps> = ({ title, handleClick }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
   const formik: FormikProps<IUser> = useFormik<IUser>({
     initialValues: {
       username: '',
