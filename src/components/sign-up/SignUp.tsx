@@ -21,8 +21,9 @@ const SignUp = () => {
         'Упс! пользователь с таким именем уже существует! Попробуйте другой!'
       );
     } else {
-      console.log('hello world');
-      // const newUser = createNewUser();
+      console.log('REGISTRED');
+      const newUser = createNewUser(username, password);
+      console.log(newUser);
       // dispatch(addNewUser(username, password));
       // history('/login');
     }
