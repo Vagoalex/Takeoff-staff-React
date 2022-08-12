@@ -1,19 +1,12 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState, IUsers } from './types';
-import { IUser } from 'types/IUser';
 import users from './usersState';
-import { useHttp } from 'hooks/http.hook';
 
 const initialState: AuthState = {
   isAuth: false,
   authUser: null,
   users,
 };
-
-// export const fetchHeroes = createAsyncThunk('auth/fetchAuth', async () => {
-//   const { request } = useHttp();
-//   return await request('http://localhost:3001/heroes');
-// });
 
 const authSlice = createSlice({
   name: 'auth',
