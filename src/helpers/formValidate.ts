@@ -5,6 +5,7 @@ function formValidate(values: IUser) {
   let errors: FormikErrors<IUser> = {};
 
   const withoutSpecialChars = /^[^-() /]*$/;
+  const containsNumbers = /(?=.*[0-9])/;
   const containsLetters = /^.*[a-zA-Z]+.*$/;
   const withoutSpaces = /^[\S]$/;
 
@@ -32,6 +33,8 @@ function formValidate(values: IUser) {
     errors.password = 'This password is too long';
   } else if (!containsLetters.test(values.password)) {
     errors.password = 'English letters in password is required';
+  } else if (!containsNumbers.test(values.password)) {
+    errors.password = 'Numbers in password is required';
   } else if (!withoutSpecialChars.test(values.password)) {
     errors.password = 'Without special symbols!';
   }

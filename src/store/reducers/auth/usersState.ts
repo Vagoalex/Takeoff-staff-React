@@ -3,7 +3,7 @@ import { IUsers } from './types';
 const users: IUsers[] = [
   {
     id: 161512521,
-    user: { username: 'vagoalex', password: '2243105' },
+    user: { username: 'vagoalex', password: 'a2243105' },
     contacts: [
       {
         id: 1,
