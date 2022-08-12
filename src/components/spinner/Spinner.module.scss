@@ -1,0 +1,63 @@
+@import '../../style/variables.scss';
+
+.loader_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #000;
+  border-top: 4px solid $second-color;
+  border-radius: 50%;
+}
+
+.loader {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 1.2s;
+  -webkit-animation-name: rotate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  -moz-transition-property: -moz-transform;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 1.2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+
+  transition-property: -webkit-transform;
+
+  -o-transition-property: transform;
+
+  transition-property: transform;
+
+  transition-property: transform, -webkit-transform;
+  animation-name: rotate;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AppRoutes from 'routes/AppRoutes';
+import AnimatedRoutes from 'routes/AnimatedRoutes';
 import { ToastContainer } from 'react-toastify';
 
 import './App.scss';
@@ -9,7 +9,7 @@ const App: FC = () => {
   return (
     <div className='App'>
       <Router>
-        <AppRoutes />
+        <AnimatedRoutes />
       </Router>
       <div className='App__purple-sphere'></div>
       <div className='App__purple-sphere-right'></div>

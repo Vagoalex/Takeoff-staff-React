@@ -1,0 +1,32 @@
+@import '../../style/variables.scss';
+
+.MainPage {
+  position: relative;
+
+  padding-top: 50px;
+  &__container {
+    background: #000000;
+    border: 25px solid rgba(56, 56, 56, 0.6);
+    border-radius: 18px;
+  }
+}
+
+.content {
+  &__title {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    color: $main-color;
+
+    &--username {
+      color: $second-color;
+      font-size: 29px;
+      text-decoration: underline;
+    }
+  }
+  &__button {
+    margin-top: 20px;
+    width: 100px;
+  }
+}

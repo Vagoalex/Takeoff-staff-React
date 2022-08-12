@@ -1,12 +1,12 @@
 import { lazy } from 'react';
-import IAppRoutes from 'types/routesTypes';
+import IAnimatedRoutes from 'types/routesTypes';
 
 const HomePage = lazy(() => import('../pages/home-page/HomePage'));
 const LoginPage = lazy(() => import('../pages/login-page/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/register-page/RegisterPage'));
 const MainPage = lazy(() => import('../pages/main-page/MainPage'));
 
-const routes: IAppRoutes[] = [
+const routes: IAnimatedRoutes[] = [
   { path: '/', name: 'HomePage', Component: HomePage },
   { path: '/login', name: 'LoginPage', Component: LoginPage },
   { path: '/register', name: 'RegisterPage', Component: RegisterPage },
