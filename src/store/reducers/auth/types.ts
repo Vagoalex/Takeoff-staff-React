@@ -3,7 +3,7 @@ import { IUser } from 'types/IUser';
 
 export interface AuthState {
   isAuth: boolean;
-  authUser: IUser;
+  authUser: string | null;
   users: IUsers[];
 }
 
