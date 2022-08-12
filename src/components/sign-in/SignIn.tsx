@@ -17,7 +17,7 @@ const SignIn = () => {
       (u) => u?.user?.username === username && u?.user?.password === password
     );
     if (person[0]) {
-      dispatch(setAuthUser({ username, password }));
+      dispatch(setAuthUser(username));
       dispatch(setIsAuth(true));
       history('/contacts');
     } else {

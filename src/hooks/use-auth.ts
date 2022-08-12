@@ -9,11 +9,7 @@ function useAuth() {
     (state: RootState) => state.auth.users,
     (isAuth, authUser, users) => {
       if (isAuth) {
-        const person = users.filter(
-          (u) =>
-            u?.user?.username === authUser?.username &&
-            u?.user?.password === authUser?.password
-        )[0];
+        const person = users.filter((u) => u?.user?.username === authUser)[0];
         return {
           id: person.id,
           username: person.user.username,
