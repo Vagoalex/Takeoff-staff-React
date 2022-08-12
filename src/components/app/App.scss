@@ -1,4 +1,52 @@
 .App {
   position: relative;
   height: 100vh;
+  background-color: #17181e;
+
+  &__purple-sphere {
+    background-image: url('../../assets/images/sphere.png');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 30%;
+    width: 254px;
+    height: 171px;
+    transform: translateX(-50%);
+  }
+  &__purple-sphere-right {
+    background-image: url('../../assets/images/sphere-right.png');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 15%;
+    right: 0%;
+    width: 62px;
+    height: 172px;
+  }
+  &__black-sphere-top {
+    background-image: url('../../assets/images/black-sphere.png');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 15%;
+    right: 25%;
+    width: 137px;
+    height: 137px;
+    transform: translateX(-50%);
+  }
+  &__black-sphere-bottom {
+    background-image: url('../../assets/images/black-sphere-bottom.png');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 221px;
+    height: 127px;
+  }
 }

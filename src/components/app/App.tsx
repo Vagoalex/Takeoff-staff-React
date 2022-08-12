@@ -11,7 +11,10 @@ const App: FC = () => {
       <Router>
         <AppRoutes />
       </Router>
-
+      <div className='App__purple-sphere'></div>
+      <div className='App__purple-sphere-right'></div>
+      <div className='App__black-sphere-top'></div>
+      <div className='App__black-sphere-bottom'></div>
       {/* <ToastContainer
         position='bottom-center'
         autoClose={2000}

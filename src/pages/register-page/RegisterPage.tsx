@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const RegisterPage: FC = () => {
   return (
     <div>
-      <h1>Register</h1>
+      <h2>Register</h2>
       <SignUp />
       <p>
         Already have an account? <Link to='/login'>Sign in</Link>

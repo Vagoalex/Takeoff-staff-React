@@ -5,7 +5,7 @@ import SignIn from '../../components/sign-in/SignIn';
 const LoginPage: FC = () => {
   return (
     <div>
-      <h1>Login</h1>
+      <h2>Login</h2>
       <SignIn />
       <p>
         Or <Link to='/register'>register</Link>
