@@ -6,10 +6,21 @@
 
   padding-top: 50px;
   &__container {
-    background: #000000;
+    background: #0a0a0a;
     border: 7px solid rgba(56, 56, 56, 0.6);
     border-radius: 18px;
-    padding: 20px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../../assets/images/bg-main.png');
+      height: 100%;
+      width: 100%;
+      background-repeat: no-repeat;
+    }
   }
 }
 
@@ -17,6 +28,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  padding: 10px 70px;
+  &::after {
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    height: 1px;
+    width: 90%;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
 
   &__title {
     font-size: 25px;
@@ -26,21 +51,24 @@
     color: $main-color;
     margin-bottom: 10px;
 
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+
     &--username {
-      color: $second-color;
+      color: #000;
       font-size: 29px;
       text-decoration: underline;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
     }
   }
   &__button {
     width: 215px;
-    padding: 4px 0px;
+    padding: 9px 0px;
     background-color: $second-color;
-    border-radius: 13px;
+    border-radius: 8px;
 
     font-family: 'Poppins';
     font-weight: 700;
-    font-size: 24px;
+    font-size: 21px;
     text-align: center;
 
     color: #ffffff;

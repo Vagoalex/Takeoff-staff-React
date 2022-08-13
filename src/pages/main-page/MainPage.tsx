@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/redux-hooks';
 import { setAuthUser, setIsAuth } from 'store/reducers/auth/authSlice';
 import useAuth from 'hooks/use-auth';
@@ -34,9 +35,9 @@ const MainPage: FC = () => {
               {user?.username}
             </span>
           </h2>
-          <button className='content-nav__button' onClick={logOut}>
+          <Link to='/login' className='content-nav__button' onClick={logOut}>
             Log out
-          </button>
+          </Link>
         </div>
         <Contacts />
         <h1>Здесь скоро будет контент!</h1>

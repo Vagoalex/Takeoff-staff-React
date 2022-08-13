@@ -10,7 +10,7 @@ const routes: IAnimatedRoutes[] = [
   { path: '/', name: 'HomePage', Component: HomePage },
   { path: '/login', name: 'LoginPage', Component: LoginPage },
   { path: '/register', name: 'RegisterPage', Component: RegisterPage },
-  { path: '/register', name: 'MainPage', Component: MainPage },
+  { path: '/contacts', name: 'MainPage', Component: MainPage },
   { path: '*', name: 'Page404', Component: HomePage },
 ];
 
