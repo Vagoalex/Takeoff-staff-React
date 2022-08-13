@@ -1,3 +1,5 @@
+@import '../../style/variables.scss';
+
 .App {
   position: relative;
   height: 100vh;
@@ -14,6 +16,11 @@
     width: 254px;
     height: 171px;
     transform: translateX(-50%);
+
+    @media (max-width: $media-tablets) {
+      top: -6%;
+      left: 7%;
+    }
   }
   &__purple-sphere-right {
     background-image: url('../../assets/images/sphere-right.png');
@@ -25,6 +32,11 @@
     right: 0%;
     width: 62px;
     height: 172px;
+
+    @media (max-width: $media-tablets) {
+      bottom: -6%;
+      right: 0%;
+    }
   }
   &__black-sphere-top {
     background-image: url('../../assets/images/black-sphere.png');
@@ -37,6 +49,11 @@
     width: 137px;
     height: 137px;
     transform: translateX(-50%);
+
+    @media (max-width: $media-tablets) {
+      top: 5%;
+      right: -11%;
+    }
   }
   &__black-sphere-bottom {
     background-image: url('../../assets/images/black-sphere-bottom.png');
@@ -48,5 +65,10 @@
     left: 0%;
     width: 221px;
     height: 127px;
+
+    @media (max-width: $media-tablets) {
+      bottom: -5%;
+      left: -19%;
+    }
   }
 }
