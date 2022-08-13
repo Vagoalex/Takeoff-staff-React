@@ -1,13 +1,26 @@
 @import '../style/variables.scss';
+@import '../style/mixins.scss';
 
 .auth {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  @include crossBrowser(transform, translate(-50%, -50%));
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   &__title {
@@ -43,7 +56,7 @@
     font-weight: 700;
     letter-spacing: 1px;
     color: $main-color;
-    transition: all 0.5s ease;
+    @include crossBrowser(transition, all 0.5s ease);
 
     text-shadow: 3px 3px 2px transparent;
 

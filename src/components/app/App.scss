@@ -1,4 +1,5 @@
 @import '../../style/variables.scss';
+@import '../../style/mixins.scss';
 
 .App {
   position: relative;
@@ -15,7 +16,7 @@
     left: 30%;
     width: 254px;
     height: 171px;
-    transform: translateX(-50%);
+    @include crossBrowser(transform, translateX(-50%));
 
     @media (max-width: $media-tablets) {
       top: -6%;
@@ -48,7 +49,7 @@
     right: 25%;
     width: 137px;
     height: 137px;
-    transform: translateX(-50%);
+    @include crossBrowser(transform, translateX(-50%));
 
     @media (max-width: $media-tablets) {
       top: 5%;

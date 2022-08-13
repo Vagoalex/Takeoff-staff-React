@@ -5,14 +5,30 @@
 }
 
 .AuthForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   &__elements {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   &__btn {
@@ -35,11 +51,13 @@
 
     &:hover:not(.AuthForm-button-disabled) {
       background-color: $second-color-hover;
+      -webkit-box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.9);
       box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.9);
     }
     &:active:not(.AuthForm-button-disabled) {
       background-color: $second-color-active;
       @include crossBrowser(transform, translateY(4px));
+      -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
     }
 
