@@ -15,7 +15,7 @@ function formValidate(values: IUser) {
     errors.username = 'This user name is too short';
   } else if (withoutSpaces.test(values.username)) {
     errors.username = 'Without spaces!';
-  } else if (values.username.length > 22) {
+  } else if (values.username.length > 30) {
     errors.username = 'This login is too long';
   } else if (!containsLetters.test(values.username)) {
     errors.username = 'English letters in name is required';

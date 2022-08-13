@@ -4,7 +4,7 @@ import { RootState } from 'store';
 import showToast from 'helpers/showToast';
 import { toast, TypeOptions } from 'react-toastify';
 import { addNewUser } from 'store/reducers/auth/authSlice';
-import Form from 'components/form/Form';
+import AuthForm from 'components/auth-form/AuthForm';
 
 import createNewUser from 'helpers/createNewUser';
 
@@ -29,7 +29,7 @@ const SignUp = () => {
     }
   };
 
-  return <Form title='register' handleClick={handleRegister} />;
+  return <AuthForm title='Sign Up.' handleClick={handleRegister} />;
 };
 
 export default SignUp;

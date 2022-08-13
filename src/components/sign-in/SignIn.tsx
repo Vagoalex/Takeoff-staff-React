@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { RootState } from 'store';
 import showToast from 'helpers/showToast';
-import Form from 'components/form/Form';
+import AuthForm from 'components/auth-form/AuthForm';
 import { toast, TypeOptions } from 'react-toastify';
 import { setIsAuth, setAuthUser } from 'store/reducers/auth/authSlice';
 
@@ -28,7 +28,7 @@ const SignIn = () => {
 
   return (
     <>
-      <Form title='Войти' handleClick={handleLogin} />
+      <AuthForm title='Sign In.' handleClick={handleLogin} />
     </>
   );
 };

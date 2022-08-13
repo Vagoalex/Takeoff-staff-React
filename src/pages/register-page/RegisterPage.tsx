@@ -16,7 +16,7 @@ const RegisterPage: FC = () => {
         duration: 1.4,
       }}
     >
-      <h2 className='auth__title'>Sign Up</h2>
+      <h2 className='auth__title'>Sign Up.</h2>
       <SignUp />
       <p className='auth__info'>
         already have an account?{' '}

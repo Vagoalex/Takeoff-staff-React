@@ -2,14 +2,16 @@ import { FC, useState } from 'react';
 import { useFormik, FormikProps } from 'formik';
 import formValidate from 'helpers/formValidate';
 import { IUser } from 'types/IUser';
-import './Form.scss';
+import './AuthForm.scss';
 
 interface FormProps {
   title: string;
   handleClick: (username: string, password: string) => void;
 }
 
-const Form: FC<FormProps> = ({ title, handleClick }) => {
+const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const formik: FormikProps<IUser> = useFormik<IUser>({
     initialValues: {
       username: '',
@@ -24,18 +26,13 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
   });
 
   return (
-    <div className='Form-container'>
-      <form className='Form' onSubmit={formik.handleSubmit}>
-        <div className='Form-elements'>
-          <div className='Form-elements__field'>
-            <label
-              className='Form-elements__label label-username'
-              htmlFor='username'
-            >
-              username
-            </label>
+    <div className='AuthForm-container'>
+      <form className='AuthForm' onSubmit={formik.handleSubmit}>
+        <div className='AuthForm__elements'>
+          <div className='AuthForm-field'>
+            <label className='AuthForm-field__label' htmlFor='username' />
             <input
-              className={`Form-elements__input ${
+              className={`AuthForm-field__input ${
                 formik.touched.username && formik.errors.username
                   ? 'form-input-required'
                   : ''
@@ -43,6 +40,7 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
               id='username'
               name='username'
               type='text'
+              placeholder='username'
               value={formik.values.username}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -52,26 +50,35 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
             ) : null}
           </div>
 
-          <div className='Form-elements__field'>
-            <label
-              className='Form-elements__label label-password'
-              htmlFor='password'
-            >
-              password
-            </label>
+          <div className='AuthForm-field'>
+            <label className='AuthForm-field__label' htmlFor='password' />
             <input
-              className={`Form-elements__input ${
+              className={`AuthForm-field__input ${
                 formik.touched.password && formik.errors.password
                   ? 'form-input-required'
                   : ''
               }`}
               id='password'
               name='password'
-              type='password'
+              type={showPassword ? 'text' : 'password'}
+              placeholder='password'
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
+            <div className='AuthForm-password-eye'>
+              <button
+                type='button'
+                className='AuthForm-password-eye__btn'
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <i className='fa fa-eye'></i>
+                ) : (
+                  <i className='fa fa-eye-slash'></i>
+                )}
+              </button>
+            </div>
             {formik.touched.password && formik.errors.password ? (
               <div className='form-error-msg'>{formik.errors.password}</div>
             ) : null}
@@ -79,9 +86,9 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
         </div>
 
         <button
-          className={`Form__btn ${
+          className={`AuthForm__btn ${
             formik.touched.username && formik.errors.password
-              ? 'form-button-disabled'
+              ? 'AuthForm-button-disabled'
               : ''
           }`}
           type='submit'
@@ -93,4 +100,4 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
   );
 };
 
-export default Form;
+export default AuthForm;
