@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AnimatedRoutes from 'routes/AnimatedRoutes';
 import { ToastContainer } from 'react-toastify';
+import AnimatedRoutes from 'routes/AnimatedRoutes';
 
 import './App.scss';
 
@@ -15,17 +15,7 @@ const App: FC = () => {
       <div className='App__purple-sphere-right'></div>
       <div className='App__black-sphere-top'></div>
       <div className='App__black-sphere-bottom'></div>
-      {/* <ToastContainer
-        position='bottom-center'
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      /> */}
+      <ToastContainer />
     </div>
   );
 };

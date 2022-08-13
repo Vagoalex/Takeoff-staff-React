@@ -40,7 +40,6 @@ const MainPage: FC = () => {
           </Link>
         </div>
         <Contacts />
-        <h1>Здесь скоро будет контент!</h1>
       </div>
     </motion.section>
   );

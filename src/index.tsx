@@ -7,6 +7,7 @@ import App from './components/app/App';
 import store, { persistor } from './store';
 
 import 'style/style.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
