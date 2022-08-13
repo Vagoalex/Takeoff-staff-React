@@ -16,7 +16,7 @@ const LoginPage: FC = () => {
         duration: 1.4,
       }}
     >
-      <h2 className='auth__title'>Sign In.</h2>
+      <h2 className='auth__title'>Sign In</h2>
       <SignIn />
       <p className='auth__info'>
         don't have an account?{' '}

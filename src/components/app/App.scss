@@ -16,6 +16,7 @@
     left: 30%;
     width: 254px;
     height: 171px;
+    @include crossBrowser(transition, all 0.5s ease);
     @include crossBrowser(transform, translateX(-50%));
 
     @media (max-width: $media-tablets) {
@@ -33,6 +34,7 @@
     right: 0%;
     width: 62px;
     height: 172px;
+    @include crossBrowser(transition, all 0.5s ease);
 
     @media (max-width: $media-tablets) {
       bottom: -6%;
@@ -49,6 +51,7 @@
     right: 25%;
     width: 137px;
     height: 137px;
+    @include crossBrowser(transition, all 0.5s ease);
     @include crossBrowser(transform, translateX(-50%));
 
     @media (max-width: $media-tablets) {
@@ -66,6 +69,7 @@
     left: 0%;
     width: 221px;
     height: 127px;
+    @include crossBrowser(transition, all 0.5s ease);
 
     @media (max-width: $media-tablets) {
       bottom: -5%;

@@ -29,7 +29,7 @@ const SignUp = () => {
     }
   };
 
-  return <AuthForm title='Sign Up.' handleClick={handleRegister} />;
+  return <AuthForm title='Sign Up' handleClick={handleRegister} />;
 };
 
 export default SignUp;

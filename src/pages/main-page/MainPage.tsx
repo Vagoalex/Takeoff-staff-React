@@ -27,12 +27,14 @@ const MainPage: FC = () => {
       }}
     >
       <div className='MainPage__container content'>
-        <div>
-          <h2 className='content__title'>
+        <div className='content-nav'>
+          <h2 className='content-nav__title'>
             Welcome,{' '}
-            <span className='content__title--username'>{user?.username}</span>
+            <span className='content-nav__title--username'>
+              {user?.username}
+            </span>
           </h2>
-          <button className='content__button' onClick={logOut}>
+          <button className='content-nav__button' onClick={logOut}>
             Log out
           </button>
         </div>

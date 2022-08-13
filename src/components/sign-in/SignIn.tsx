@@ -28,7 +28,7 @@ const SignIn = () => {
 
   return (
     <>
-      <AuthForm title='Sign In.' handleClick={handleLogin} />
+      <AuthForm title='Sign In' handleClick={handleLogin} />
     </>
   );
 };

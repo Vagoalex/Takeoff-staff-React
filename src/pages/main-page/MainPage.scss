@@ -1,4 +1,5 @@
 @import '../../style/variables.scss';
+@import '../../style/mixins.scss';
 
 .MainPage {
   position: relative;
@@ -6,18 +7,24 @@
   padding-top: 50px;
   &__container {
     background: #000000;
-    border: 25px solid rgba(56, 56, 56, 0.6);
+    border: 7px solid rgba(56, 56, 56, 0.6);
     border-radius: 18px;
+    padding: 20px;
   }
 }
 
-.content {
+.content-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   &__title {
     font-size: 25px;
     font-weight: 700;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 1px;
     color: $main-color;
+    margin-bottom: 10px;
 
     &--username {
       color: $second-color;
@@ -26,7 +33,38 @@
     }
   }
   &__button {
-    margin-top: 20px;
-    width: 100px;
+    width: 215px;
+    padding: 4px 0px;
+    background-color: $second-color;
+    border-radius: 13px;
+
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+
+    color: #ffffff;
+    cursor: pointer;
+
+    @include crossBrowser(transition, all 0.4s ease);
+
+    &:hover:not(.AuthForm-button-disabled) {
+      background-color: $second-color-hover;
+      -webkit-box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.9);
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.9);
+    }
+    &:active:not(.AuthForm-button-disabled) {
+      background-color: $second-color-active;
+      @include crossBrowser(transform, translateY(4px));
+      -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: $media-extra-phones) {
+      width: 350px;
+    }
+    @media (max-width: $media-extra-small-phones) {
+      width: 305px;
+    }
   }
 }
