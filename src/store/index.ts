@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import authReducer from './reducers/auth/authSlice';
 import usersReducer from './reducers/users/usersSlice';
+import modalReducer from './reducers/modals/modalSlice';
 
 const persistConfig = {
   key: 'root',
@@ -23,6 +24,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   users: usersReducer,
+  modals: modalReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

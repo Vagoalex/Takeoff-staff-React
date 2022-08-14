@@ -3,7 +3,6 @@ import { AuthState } from './types';
 
 const initialState: AuthState = {
   isAuth: false,
-  activeModal: false,
 };
 
 const authSlice = createSlice({
@@ -13,11 +12,8 @@ const authSlice = createSlice({
     setIsAuth(state, action: PayloadAction<boolean>) {
       state.isAuth = action.payload;
     },
-    setActiveModal(state, action: PayloadAction<boolean>) {
-      state.activeModal = action.payload;
-    },
   },
 });
 
-export const { setIsAuth, setActiveModal } = authSlice.actions;
+export const { setIsAuth } = authSlice.actions;
 export default authSlice.reducer;

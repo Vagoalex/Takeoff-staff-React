@@ -1,9 +1,7 @@
 import { useAppDispatch } from 'hooks/redux-hooks';
 import { FC, useMemo } from 'react';
-import {
-  deleteContact,
-  setActiveAddContactModal,
-} from 'store/reducers/users/usersSlice';
+import { deleteContact } from 'store/reducers/users/usersSlice';
+import { setContactActiveModal } from 'store/reducers/modals/modalSlice';
 import { IContacts } from 'types/IContacts';
 import validateNumber from 'helpers/validateNumber';
 import useAuth from 'hooks/use-auth';
@@ -16,7 +14,6 @@ type IContact = {
 const ContactsListItem: FC<IContact> = ({ contact }) => {
   const { user } = useAuth();
   const dispatch = useAppDispatch();
-  // console.log(user);
 
   const { id, firstName, secondName, email, number } = contact;
   const textNumber = useMemo(() => validateNumber(number), [number]);
@@ -46,7 +43,7 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
       <div>
         <button
           className='Contact-btn Contact-btn--change'
-          onClick={() => dispatch(setActiveAddContactModal(true))}
+          onClick={() => dispatch(setContactActiveModal(true))}
         >
           Change
         </button>
