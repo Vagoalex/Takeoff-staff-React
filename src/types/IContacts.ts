@@ -3,5 +3,5 @@ export interface IContacts {
   firstName: string;
   secondName: string;
   email: string;
-  number: string;
+  number: number;
 }

@@ -47,19 +47,23 @@ const contactsSlice = createSlice({
     //     contact.id === action.payload.id ? action.payload.contact : contact
     //   );
     // },
-    // deleteContact(state, action: PayloadAction<IUserContactID>) {
-    //   state.users[action.payload.id].contacts = state.users[
-    //     action.payload.id
-    //   ].contacts.filter((contact) => contact.id !== action.payload.contactId);
-    // },
+    deleteContact(state, action: PayloadAction<IContacts[]>) {
+      state.users.map((user) => {
+        if (user.id === state.authUserId) {
+          return (user.contacts = action.payload);
+        }
+        return user;
+      });
+    },
   },
 });
 
-// export const { addNewUser, addContact, changeContact, deleteContact } =
 export const {
   addNewUser,
   setAuthUser,
   setAuthUserId,
   setActiveAddContactModal,
+  addContact,
+  deleteContact,
 } = contactsSlice.actions;
 export default contactsSlice.reducer;
