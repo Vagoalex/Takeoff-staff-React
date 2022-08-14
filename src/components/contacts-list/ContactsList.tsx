@@ -1,7 +1,6 @@
 import { FC, useMemo, useState } from 'react';
 import useAuth from 'hooks/use-auth';
 import ContactsListItem from 'components/contacts-list-item/ContactsListItem';
-import Modal from 'components/contacts-modal/Modal';
 
 import './ContactsList.scss';
 
@@ -35,9 +34,6 @@ const ContactsList: FC<ListProps> = ({ inputText }) => {
           <ContactsListItem key={ct.id} contact={ct} />
         ))}
       </div>
-      <Modal>
-        <button>Изменить, компонент</button>
-      </Modal>
     </>
   );
 };

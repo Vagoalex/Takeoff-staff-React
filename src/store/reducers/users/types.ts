@@ -5,7 +5,6 @@ export interface IUsersState {
   users: IUsers[];
   authUser: string | null;
   authUserId: number | null;
-  activeAddContactModal: boolean;
 }
 
 export interface IUserContacts {

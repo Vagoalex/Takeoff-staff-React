@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import showToast from 'helpers/showToast';
 import AuthForm from 'components/auth-form/AuthForm';
-import { setIsAuth, setActiveModal } from 'store/reducers/auth/authSlice';
+import { setIsAuth } from 'store/reducers/auth/authSlice';
+import { setAuthActiveModal } from 'store/reducers/modals/modalSlice';
 import { setAuthUser, setAuthUserId } from 'store/reducers/users/usersSlice';
 import { selectUsers } from 'store/selectors/selectors';
 
@@ -24,7 +25,7 @@ const SignIn = () => {
       showToast('success', `Hello, ${username}!`);
       history('/contacts');
     } else {
-      dispatch(setActiveModal(true));
+      dispatch(setAuthActiveModal(true));
     }
   };
 
