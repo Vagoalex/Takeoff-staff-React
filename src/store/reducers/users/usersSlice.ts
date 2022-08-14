@@ -8,6 +8,7 @@ const initialState: IUsersState = {
   users,
   authUser: null,
   authUserId: null,
+  activeAddContactModal: false,
 };
 
 const contactsSlice = createSlice({
@@ -19,6 +20,9 @@ const contactsSlice = createSlice({
     },
     setAuthUserId(state, action: PayloadAction<number | null>) {
       state.authUserId = action.payload;
+    },
+    setActiveAddContactModal(state, action: PayloadAction<boolean>) {
+      state.activeAddContactModal = action.payload;
     },
     addNewUser(state, action: PayloadAction<IUsers>) {
       state.users.push(action.payload);
@@ -52,5 +56,10 @@ const contactsSlice = createSlice({
 });
 
 // export const { addNewUser, addContact, changeContact, deleteContact } =
-export const { addNewUser, setAuthUser, setAuthUserId } = contactsSlice.actions;
+export const {
+  addNewUser,
+  setAuthUser,
+  setAuthUserId,
+  setActiveAddContactModal,
+} = contactsSlice.actions;
 export default contactsSlice.reducer;

@@ -1,0 +1,17 @@
+.ContactsList {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__empty {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 4px 4px 4px rgb(0 0 0 / 70%);
+    text-align: center;
+  }
+}

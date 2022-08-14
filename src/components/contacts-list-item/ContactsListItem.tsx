@@ -1,5 +1,6 @@
-import { FC, useMemo, useState } from 'react';
-import Modal from 'components/contacts-modal/Modal';
+import { useAppDispatch } from 'hooks/redux-hooks';
+import { FC, useMemo } from 'react';
+import { setActiveAddContactModal } from 'store/reducers/users/usersSlice';
 import './ContactsListItem.scss';
 
 type IContact = {
@@ -12,29 +13,34 @@ type IContact = {
 };
 
 const ContactsListItem: FC<IContact> = ({ contact }) => {
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   const { firstName, secondName, email, number } = contact;
-  const validateName = useMemo(() => parseFloat(number), [number]);
+  const validateName = useMemo(
+    () => parseFloat(number.replace(/\s/g, '')),
+    [number]
+  );
 
   return (
     <div className='Contact'>
       <div className='Contact__container'>
-        <p className='Contact__desk'>
+        <p className='Contact__name'>
           {firstName} {secondName}
         </p>
         <p className='Contact__desk'>{email}</p>
-        <a href={`tel+${validateName}`} className='Contact__desk'>
+        <a href={`tel+${validateName}`} className='Contact__desk Contact-phone'>
           {number}
         </a>
       </div>
       <div>
-        <button onClick={() => setShowModal(true)}>Изменить</button>
-        <button>Удалить</button>
+        <button
+          className='Contact-btn Contact-btn--change'
+          onClick={() => dispatch(setActiveAddContactModal(true))}
+        >
+          Change
+        </button>
+        <button className='Contact-btn Contact-btn--delete'>Remove</button>
       </div>
-      <Modal showModal={showModal} setShowModal={setShowModal}>
-        <button>Изменить, компонент</button>
-      </Modal>
     </div>
   );
 };

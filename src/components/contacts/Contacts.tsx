@@ -1,4 +1,6 @@
 import { FC, useState } from 'react';
+import { useAppDispatch } from 'hooks/redux-hooks';
+import { setActiveAddContactModal } from 'store/reducers/users/usersSlice';
 import ContactsFilter from '../contacts-filter/ContactsFilter';
 import Modal from '../contacts-modal/Modal';
 import ContactsAddForm from '../contacts-add-form/ContactsAddForm';
@@ -7,24 +9,24 @@ import './Contacts.scss';
 
 const Contacts: FC = () => {
   const [inputText, setInputText] = useState<string>('');
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   return (
     <div className='Contacts'>
       <div className='Contacts__container'>
-        <h2 className='Contacts__title'>Contacts</h2>
+        <h2 className='Contacts__title'>Contacts:</h2>
         <div className='Contacts__actions'>
           <ContactsFilter setInputText={setInputText} />
-          <Modal showModal={showModal} setShowModal={setShowModal}>
-            <ContactsAddForm />
-          </Modal>
           <button
-            className='Contacts-btn'
+            className='Contacts-add-btn'
             type='button'
-            onClick={() => setShowModal(true)}
+            onClick={() => dispatch(setActiveAddContactModal(true))}
           >
             Add contact
           </button>
+          <Modal>
+            <ContactsAddForm />
+          </Modal>
         </div>
         <ContactsList inputText={inputText} />
       </div>

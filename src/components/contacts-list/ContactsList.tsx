@@ -1,6 +1,7 @@
-import { FC, useMemo } from 'react';
+import { FC, useMemo, useState } from 'react';
 import useAuth from 'hooks/use-auth';
 import ContactsListItem from 'components/contacts-list-item/ContactsListItem';
+import Modal from 'components/contacts-modal/Modal';
 
 import './ContactsList.scss';
 
@@ -28,11 +29,16 @@ const ContactsList: FC<ListProps> = ({ inputText }) => {
   }
 
   return (
-    <div className='ContactsList'>
-      {filteredContacts?.map((ct) => (
-        <ContactsListItem key={ct.id} contact={ct} />
-      ))}
-    </div>
+    <>
+      <div className='ContactsList'>
+        {filteredContacts?.map((ct) => (
+          <ContactsListItem key={ct.id} contact={ct} />
+        ))}
+      </div>
+      <Modal>
+        <button>Изменить, компонент</button>
+      </Modal>
+    </>
   );
 };
 

@@ -1,0 +1,71 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
+.Contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+
+  &__container {
+  }
+  &__name {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
+  }
+  &__desk {
+    margin-bottom: 3px;
+  }
+  .Contact-phone {
+    color: $main-color;
+  }
+}
+
+.Contact-btn {
+  box-shadow: 3px 3px 12px rgb(0 0 0 / 90%);
+  border: 1px solid #222222;
+  backdrop-filter: blur(6px);
+  border-radius: 7px;
+
+  width: 120px;
+  padding: 4px 10px;
+  height: 32px;
+
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+
+  @include crossBrowser(transition, all 0.4s ease);
+
+  &--change {
+    background-color: $second-color;
+    &:hover {
+      background-color: $second-color-hover;
+    }
+    &:active {
+      background-color: $second-color-active;
+      @include crossBrowser(transform, translateY(4px));
+    }
+  }
+  &--delete {
+    background-color: #ba3156;
+    &:hover {
+      background-color: #ef1c54;
+    }
+    &:active {
+      background-color: #990f34;
+      @include crossBrowser(transform, translateY(4px));
+    }
+  }
+}
