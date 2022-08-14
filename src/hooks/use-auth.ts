@@ -6,7 +6,7 @@ function useAuth() {
   const userSelector = createSelector(
     (state: RootState) => state.auth.isAuth,
     (state: RootState) => state.auth.authUser,
-    (state: RootState) => state.auth.users,
+    (state: RootState) => state.users.users,
     (isAuth, authUser, users) => {
       if (isAuth) {
         const person = users.filter((u) => u?.user?.username === authUser)[0];

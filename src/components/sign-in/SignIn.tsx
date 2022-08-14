@@ -15,7 +15,7 @@ const SignIn = () => {
   const dispatch = useAppDispatch();
   const history = useNavigate();
 
-  const users = useAppSelector((state: RootState) => state.auth.users);
+  const users = useAppSelector((state: RootState) => state.users.users);
 
   const handleLogin = (username: string, password: string) => {
     const person = users.filter(

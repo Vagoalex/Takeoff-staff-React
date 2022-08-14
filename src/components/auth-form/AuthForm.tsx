@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useFormik, FormikProps } from 'formik';
-import formValidate from 'helpers/formValidate';
+import authFormValidate from 'helpers/authFormValidate';
 import { IUser } from 'types/IUser';
 import './AuthForm.scss';
 
@@ -18,7 +18,7 @@ const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
       password: '',
     },
 
-    validate: (values: IUser) => formValidate(values),
+    validate: (values: IUser) => authFormValidate(values),
     onSubmit: (values: IUser, { resetForm }) => {
       resetForm();
       handleClick(values.username, values.password);

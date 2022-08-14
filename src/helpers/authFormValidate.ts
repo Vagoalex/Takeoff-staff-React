@@ -1,7 +1,7 @@
-import { IUser } from './../types/IUser';
+import { IUser } from '../types/IUser';
 import { FormikErrors } from 'formik';
 
-function formValidate(values: IUser) {
+function authFormValidate(values: IUser) {
   let errors: FormikErrors<IUser> = {};
 
   const withoutSpecialChars = /^[^-() /]*$/;
@@ -42,4 +42,4 @@ function formValidate(values: IUser) {
   return errors;
 }
 
-export default formValidate;
+export default authFormValidate;

@@ -1,12 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthState, IUsers } from './types';
-import users from './usersState';
+import { AuthState } from './types';
 
 const initialState: AuthState = {
   isAuth: false,
   authUser: null,
   activeModal: false,
-  users,
 };
 
 const authSlice = createSlice({
@@ -22,12 +20,8 @@ const authSlice = createSlice({
     setActiveModal(state, action: PayloadAction<boolean>) {
       state.activeModal = action.payload;
     },
-    addNewUser(state, action: PayloadAction<IUsers>) {
-      state.users.push(action.payload);
-    },
   },
 });
 
-export const { setIsAuth, setAuthUser, setActiveModal, addNewUser } =
-  authSlice.actions;
+export const { setIsAuth, setAuthUser, setActiveModal } = authSlice.actions;
 export default authSlice.reducer;

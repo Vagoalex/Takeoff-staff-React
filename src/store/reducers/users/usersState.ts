@@ -1,4 +1,4 @@
-import { IUsers } from './types';
+import { IUsers } from 'types/IUsers';
 
 const users: IUsers[] = [
   {

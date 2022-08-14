@@ -1,4 +1,4 @@
-export interface iContacts {
+export interface IContacts {
   id: number;
   firstName: string;
   secondName: string;
