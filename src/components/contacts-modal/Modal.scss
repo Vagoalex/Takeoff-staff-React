@@ -1,0 +1,65 @@
+@import '../../style/variables.scss';
+@import '../../style/mixins.scss';
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: -1;
+
+  &--active {
+    z-index: 1000;
+    opacity: 1;
+  }
+}
+
+.modal__content {
+  height: auto;
+  width: 400px;
+
+  box-shadow: 0 0 100px rgba(0, 0, 0);
+  background-color: #000;
+  border: 1px solid rgb(56, 56, 56);
+  border-radius: 20px;
+  color: $main-color;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(0.5) translateX(100%);
+  transition: all 0.5s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../assets/images/bg-main.png');
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    border: 1px solid rgb(56, 56, 56);
+    z-index: -1;
+  }
+
+  &--active {
+    transform: scale(1) translateX(0);
+  }
+
+  @media (max-width: $media-extra-phones) {
+    width: 350px;
+  }
+  @media (max-width: $media-small-phones) {
+    width: 300px;
+  }
+}
