@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from 'store';
 import {
   selectAuthUser,
   selectIsAuth,
   selectUsers,
+  selectAuthUserId,
 } from 'store/selectors/selectors';
 import { useAppSelector } from './redux-hooks';
 
@@ -11,13 +11,17 @@ function useAuth() {
   const userSelector = createSelector(
     selectIsAuth,
     selectAuthUser,
+    selectAuthUserId,
     selectUsers,
-    (isAuth, authUser, users) => {
+    (isAuth, authUser, userId, users) => {
       if (isAuth) {
-        const person = users.filter((u) => u?.user?.username === authUser)[0];
+        const person = users.filter(
+          (u) => u?.user?.username === authUser && u?.id === userId
+        )[0];
         return {
           id: person.id,
           username: person.user.username,
+          contacts: person.contacts,
         };
       }
     }
