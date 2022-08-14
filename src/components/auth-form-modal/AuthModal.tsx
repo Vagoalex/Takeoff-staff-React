@@ -19,15 +19,19 @@ const AuthModal = () => {
         className={activeModal ? content_active : content}
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className='AuthModal-content__title'>
-          Incorrect username of password
+        <h3 className='AuthModal-content__title Modal-title'>
+          Incorrect username or password
         </h3>
         <div className='AuthModal-content__buttons'>
-          <button className='AuthModal-link AuthModal-link--close'>
+          <button
+            type='button'
+            className='AuthModal-link AuthModal-link--close'
+            onClick={closeModal}
+          >
             Try again
           </button>
-          <span>or:</span>
-          <Link to='/register' className='AuthModal-link'>
+          <span className='AuthModal-slash Modal-title'>or:</span>
+          <Link to='/register' className='AuthModal-link' onClick={closeModal}>
             Create new account?
           </Link>
         </div>

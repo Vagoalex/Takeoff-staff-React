@@ -64,7 +64,7 @@
     @media (max-width: $media-extra-phones) {
       width: 350px;
     }
-    @media (max-width: $media-extra-small-phones) {
+    @media (max-width: $media-small-phones) {
       width: 305px;
     }
   }
@@ -103,7 +103,7 @@
     width: 350px;
     margin-bottom: 30px;
   }
-  @media (max-width: $media-extra-small-phones) {
+  @media (max-width: $media-small-phones) {
     width: 305px;
   }
 }
