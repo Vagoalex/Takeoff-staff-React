@@ -3,6 +3,8 @@ import { IUsers } from 'types/IUsers';
 
 export interface IUsersState {
   users: IUsers[];
+  authUser: string | null;
+  authUserId: number | null;
 }
 
 export interface IUserContacts {
