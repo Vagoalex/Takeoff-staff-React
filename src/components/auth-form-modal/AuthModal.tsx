@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { setActiveModal } from 'store/reducers/auth/authSlice';
+import { selectActiveModal } from 'store/selectors/selectors';
 import modalClasses from './modalClasses';
 import './AuthModal.scss';
 
 const AuthModal = () => {
   const dispatch = useAppDispatch();
-  const activeModal = useAppSelector((state) => state.auth.activeModal);
+  const activeModal = useAppSelector(selectActiveModal);
   const { modal, modal_active, content, content_active } = modalClasses;
 
   const closeModal = () => {

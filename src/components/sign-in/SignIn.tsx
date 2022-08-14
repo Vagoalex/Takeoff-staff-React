@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
-import { RootState } from 'store';
 import showToast from 'helpers/showToast';
 import AuthForm from 'components/auth-form/AuthForm';
 import { setIsAuth, setActiveModal } from 'store/reducers/auth/authSlice';
 import { setAuthUser, setAuthUserId } from 'store/reducers/users/usersSlice';
+import { selectUsers } from 'store/selectors/selectors';
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
   const history = useNavigate();
 
-  const users = useAppSelector((state: RootState) => state.users.users);
+  const users = useAppSelector(selectUsers);
 
   const handleLogin = (username: string, password: string) => {
     const person = users.filter(
