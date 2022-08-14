@@ -2,8 +2,8 @@ import { FC, useState } from 'react';
 import ContactsFilter from '../contacts-filter/ContactsFilter';
 import Modal from '../contacts-modal/Modal';
 import ContactsAddForm from '../contacts-add-form/ContactsAddForm';
-import './Contacts.scss';
 import ContactsList from '../contacts-list/ContactsList';
+import './Contacts.scss';
 
 const Contacts: FC = () => {
   const [inputText, setInputText] = useState<string>('');
