@@ -3,13 +3,11 @@ import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { RootState } from 'store';
 import showToast from 'helpers/showToast';
 import AuthForm from 'components/auth-form/AuthForm';
-import { toast, TypeOptions } from 'react-toastify';
 import {
   setIsAuth,
   setAuthUser,
   setActiveModal,
 } from 'store/reducers/auth/authSlice';
-import AuthModal from 'components/auth-form-modal/AuthModal';
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +22,7 @@ const SignIn = () => {
     if (person[0]) {
       dispatch(setAuthUser(username));
       dispatch(setIsAuth(true));
+      showToast('success', `Hello, ${username}!`);
       history('/contacts');
     } else {
       dispatch(setActiveModal(true));

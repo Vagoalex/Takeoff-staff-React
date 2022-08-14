@@ -1,8 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from 'store';
-import { useAppSelector } from './redux-hooks';
+import { useAppDispatch, useAppSelector } from './redux-hooks';
 
 function useAuth() {
+  const dispatch = useAppDispatch();
+
   const userSelector = createSelector(
     (state: RootState) => state.auth.isAuth,
     (state: RootState) => state.auth.authUser,
@@ -10,11 +12,10 @@ function useAuth() {
     (isAuth, authUser, users) => {
       if (isAuth) {
         const person = users.filter((u) => u?.user?.username === authUser)[0];
+        dispatch(setContacts(person.contacts));
         return {
           id: person.id,
           username: person.user.username,
-          password: person.user.password,
-          contacts: person.contacts,
         };
       }
     }
