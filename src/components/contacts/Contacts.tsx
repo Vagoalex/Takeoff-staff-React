@@ -1,13 +1,12 @@
-import useAuth from 'hooks/use-auth';
 import { FC } from 'react';
 import './Contacts.scss';
 
 const Contacts: FC = () => {
-  const { user } = useAuth();
-
-  console.log(user);
-
-  return <div className='Contacts'></div>;
+  return (
+    <div className='Contacts'>
+      <h2 className='Contacts__title'>Contacts</h2>
+    </div>
+  );
 };
 
 export default Contacts;

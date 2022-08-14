@@ -3,11 +3,8 @@ import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { RootState } from 'store';
 import showToast from 'helpers/showToast';
 import AuthForm from 'components/auth-form/AuthForm';
-import {
-  setIsAuth,
-  setAuthUser,
-  setActiveModal,
-} from 'store/reducers/auth/authSlice';
+import { setIsAuth, setActiveModal } from 'store/reducers/auth/authSlice';
+import { setAuthUser, setAuthUserId } from 'store/reducers/users/usersSlice';
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -19,8 +16,10 @@ const SignIn = () => {
     const person = users.filter(
       (u) => u?.user?.username === username && u?.user?.password === password
     );
+
     if (person[0]) {
       dispatch(setAuthUser(username));
+      dispatch(setAuthUserId(person[0].id));
       dispatch(setIsAuth(true));
       showToast('success', `Hello, ${username}!`);
       history('/contacts');
