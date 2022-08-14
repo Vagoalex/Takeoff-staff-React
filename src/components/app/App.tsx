@@ -1,3 +1,4 @@
+import AuthModal from 'components/auth-form-modal/AuthModal';
 import React, { FC } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -10,6 +11,7 @@ const App: FC = () => {
     <div className='App'>
       <Router>
         <AnimatedRoutes />
+        <AuthModal />
       </Router>
       <div className='App__purple-sphere'></div>
       <div className='App__purple-sphere-right'></div>

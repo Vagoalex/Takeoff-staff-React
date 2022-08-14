@@ -48,11 +48,8 @@
 
     @include crossBrowser(transition, all 0.5s ease);
 
-    @media (max-width: $media-extra-phones) {
-      font-size: 16px;
-    }
-    @media (max-width: $media-extra-small-phones) {
-      max-width: 200px;
+    @media (max-width: $media-small-desktops) {
+      max-width: 265px;
     }
   }
   &__link {
@@ -60,6 +57,7 @@
     font-weight: 700;
     letter-spacing: 1px;
     color: $main-color;
+    text-decoration: underline;
     @include crossBrowser(transition, all 0.5s ease);
 
     text-shadow: 3px 3px 2px transparent;
@@ -68,12 +66,9 @@
       color: $second-color;
       text-shadow: 3px 3px 2px rgb(0, 0, 0);
     }
-
-    @media (max-width: $media-extra-phones) {
-      font-size: 17px;
-    }
-    @media (max-width: $media-extra-small-phones) {
+    @media (max-width: $media-small-desktops) {
       margin-left: 0px;
+      line-height: 32px;
     }
   }
 }

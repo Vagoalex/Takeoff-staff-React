@@ -5,6 +5,7 @@ import users from './usersState';
 const initialState: AuthState = {
   isAuth: false,
   authUser: null,
+  activeModal: false,
   users,
 };
 
@@ -18,11 +19,15 @@ const authSlice = createSlice({
     setAuthUser(state, action: PayloadAction<string | null>) {
       state.authUser = action.payload;
     },
+    setActiveModal(state, action: PayloadAction<boolean>) {
+      state.activeModal = action.payload;
+    },
     addNewUser(state, action: PayloadAction<IUsers>) {
       state.users.push(action.payload);
     },
   },
 });
 
-export const { setIsAuth, setAuthUser, addNewUser } = authSlice.actions;
+export const { setIsAuth, setAuthUser, setActiveModal, addNewUser } =
+  authSlice.actions;
 export default authSlice.reducer;

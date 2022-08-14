@@ -21,7 +21,7 @@ const LoginPage: FC = () => {
       <p className='auth__info'>
         don't have an account?{' '}
         <Link to='/register' className='auth__link'>
-          Create a account
+          Create new account
         </Link>
       </p>
     </motion.section>

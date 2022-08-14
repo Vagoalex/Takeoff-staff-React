@@ -4,7 +4,12 @@ import { RootState } from 'store';
 import showToast from 'helpers/showToast';
 import AuthForm from 'components/auth-form/AuthForm';
 import { toast, TypeOptions } from 'react-toastify';
-import { setIsAuth, setAuthUser } from 'store/reducers/auth/authSlice';
+import {
+  setIsAuth,
+  setAuthUser,
+  setActiveModal,
+} from 'store/reducers/auth/authSlice';
+import AuthModal from 'components/auth-form-modal/AuthModal';
 
 const SignIn = () => {
   const dispatch = useAppDispatch();
@@ -21,8 +26,7 @@ const SignIn = () => {
       dispatch(setIsAuth(true));
       history('/contacts');
     } else {
-      console.log('данного юзера не существует!');
-      console.log('модалка, не желаете ли вы зарегаться?');
+      dispatch(setActiveModal(true));
     }
   };
 

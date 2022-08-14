@@ -16,9 +16,6 @@ const SignUp = () => {
   const handleRegister = (username: string, password: string) => {
     const person = users.filter((u) => u?.user?.username === username);
     if (person.length !== 0) {
-      console.log(
-        'Упс! пользователь с таким именем уже существует! Попробуйте другой!'
-      );
       showToast(
         'error',
         'Упс! пользователь с таким именем уже существует! Попробуйте другой!'
