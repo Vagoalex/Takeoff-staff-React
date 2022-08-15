@@ -57,6 +57,10 @@
         -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
       }
+      @media (max-width: $media-tablets) {
+        width: 150px;
+        padding: 4px 0px;
+      }
     }
   }
 }

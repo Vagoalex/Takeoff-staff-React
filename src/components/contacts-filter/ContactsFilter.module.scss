@@ -22,4 +22,8 @@
   &:focus {
     border: 2px solid $second-color;
   }
+
+  @media (max-width: $media-tablets) {
+    font-size: 14px;
+  }
 }

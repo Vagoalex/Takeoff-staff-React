@@ -31,6 +31,9 @@
       color: rgb(255, 54, 252);
       text-shadow: 3px 3px 3px rgba(62, 62, 62, 0.9);
     }
+    @media (max-width: $media-phones) {
+      font-size: 13px;
+    }
   }
   &__actions {
     @media (max-width: $media-tablets) {

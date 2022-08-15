@@ -6,6 +6,7 @@ import convertNumber from 'helpers/convertNumber';
 import useAuth from 'hooks/use-auth';
 import Modal from 'components/modal/Modal';
 import ContactsChangeForm from 'components/contacts-add-change-form/ContactsChangeForm';
+import { motion } from 'framer-motion';
 import './ContactsListItem.scss';
 
 type IContact = {
@@ -28,7 +29,15 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
   };
 
   return (
-    <div className='Contact'>
+    <motion.div
+      className='Contact'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 1,
+      }}
+    >
       <div className='Contact__container'>
         <p className='Contact__name'>
           {firstName} {secondName}
@@ -58,7 +67,7 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
           <ContactsChangeForm contact={contact} />
         </Modal>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
