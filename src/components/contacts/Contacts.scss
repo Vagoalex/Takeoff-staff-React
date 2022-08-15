@@ -24,12 +24,19 @@
     text-shadow: 4px 4px 4px rgb(0 0 0 / 70%);
   }
   &__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     .Contacts-add-btn {
       background-color: $second-color;
+      -webkit-box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
       box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
       border: 1px solid #ffffff;
       border-radius: 3px;
@@ -45,6 +52,9 @@
 
       color: #ffffff;
       cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
 
       @include crossBrowser(transition, all 0.2s ease);

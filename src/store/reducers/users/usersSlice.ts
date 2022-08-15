@@ -17,12 +17,15 @@ const contactsSlice = createSlice({
     setAuthUser(state, action: PayloadAction<string | null>) {
       state.authUser = action.payload;
     },
+
     setAuthUserId(state, action: PayloadAction<number | null>) {
       state.authUserId = action.payload;
     },
+
     addNewUser(state, action: PayloadAction<IUsers>) {
       state.users.push(action.payload);
     },
+
     addContact(state, action: PayloadAction<IContacts>) {
       const updatedUser = state.users.filter(
         (user) => user.id === state.authUserId
@@ -33,26 +36,21 @@ const contactsSlice = createSlice({
         user.id === updatedUser[0].id ? updatedUser : user
       );
     },
-    changeContact(state, action: PayloadAction<IContacts>) {
-      const u = state.users.filter((user) => user.id === state.authUserId);
-      const updatedUser = u[0].contacts.map((ct) => {
-        if (ct.id === action.payload.id) {
-          return action.payload;
-        }
-        return ct;
-      });
 
-      state.users.map((user) =>
-        user.id === updatedUser[0].id ? updatedUser : user
+    changeContact(state, action: PayloadAction<IContacts>) {
+      const currUser = state.users.filter((u) => u.id === state.authUserId);
+      const newContacts = currUser[0].contacts.map((ct) =>
+        ct.id === action.payload.id ? action.payload : ct
+      );
+      state.users.map((u) =>
+        u.id === state.authUserId ? (u.contacts = newContacts) : u
       );
     },
+
     deleteContact(state, action: PayloadAction<IContacts[]>) {
-      state.users.map((user) => {
-        if (user.id === state.authUserId) {
-          return (user.contacts = action.payload);
-        }
-        return user;
-      });
+      state.users.map((u) =>
+        u.id === state.authUserId ? (u.contacts = action.payload) : u
+      );
     },
   },
 });
