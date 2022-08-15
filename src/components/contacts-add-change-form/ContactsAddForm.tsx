@@ -25,7 +25,6 @@ const ContactsAddForm: FC<ContactsFormProps> = ({ setActiveModal }) => {
     validate: (values: IFormContact) => contactsFormValidate(values),
     onSubmit: (values: IFormContact, { resetForm }) => {
       const contact = createOrUpdateContact(values);
-      console.log(contact);
       dispatch(addContact(contact));
       resetForm();
       showToast('success', 'New contact has been created');

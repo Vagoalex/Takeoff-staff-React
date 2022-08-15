@@ -1,12 +1,12 @@
 @import '../../style/variables.scss';
+@import '../../style/mixins.scss';
 
 .loader_container {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+
+  @include crossBrowser(transform, translate(-50%, -50%));
 }
 
 .loader {
@@ -55,11 +55,9 @@
 
 @keyframes rotate {
   from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    @include crossBrowser(transform, rotate(0deg));
   }
   to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    @include crossBrowser(transform, rotate(360deg));
   }
 }

@@ -33,7 +33,6 @@ const ContactsChangeForm: FC<IContact> = ({ contact, setActiveModal }) => {
         number: values.number,
       };
       const updatedContact = createOrUpdateContact(ctObj);
-      console.log(updatedContact);
       dispatch(changeContact(updatedContact));
       resetForm();
       showToast('success', `Contact ${values.firstName} has been updated`);

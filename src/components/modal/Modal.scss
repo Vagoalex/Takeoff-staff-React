@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import '../../style/variables.scss';
 @import '../../style/mixins.scss';
 
@@ -9,11 +16,19 @@
   top: 0;
   left: 0;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   opacity: 0;
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.4s ease);
   z-index: -1;
 
   &--active {
@@ -26,19 +41,32 @@
   height: auto;
   width: 400px;
 
+  -webkit-box-shadow: 0 0 100px rgba(0, 0, 0);
+
   box-shadow: 0 0 100px rgba(0, 0, 0);
   background-color: #000;
   border: 1px solid rgb(56, 56, 56);
   border-radius: 20px;
   color: $main-color;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
-  transform: scale(0.1) translateX(300%);
-  transition: all 0.5s ease;
+  @include crossBrowser(transition, all 0.5s ease);
+  @include crossBrowser(transform, scale(0.1) translateX(300%));
 
   &::before {
     content: '';
@@ -53,7 +81,7 @@
   }
 
   &--active {
-    transform: scale(1) translateX(0);
+    @include crossBrowser(transform, scale(1) translateX(0));
   }
 
   @media (max-width: $media-extra-phones) {

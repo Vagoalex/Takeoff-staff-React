@@ -24,7 +24,6 @@ const SignUp = () => {
       showToast('success', `User "${username}" has been created`);
 
       const newUser = createNewUser(username, password);
-      console.log(newUser);
       dispatch(addNewUser(newUser));
       history('/login');
     }
