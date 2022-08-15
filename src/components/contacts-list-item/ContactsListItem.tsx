@@ -36,11 +36,11 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
         <a href={`mailto:${email}`} className='Contact__link'>
           {email}
         </a>
-        <a href={`tel:+1${number}`} className='Contact__link'>
+        <a href={`tel:+1${number}`} className='Contact__link contact-tel'>
           {`+1 ${textNumber}`}
         </a>
       </div>
-      <div>
+      <div className='Contact__actions'>
         <button
           className='Contact-btn Contact-btn--change'
           type='button'

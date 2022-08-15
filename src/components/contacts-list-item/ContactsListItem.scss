@@ -2,6 +2,7 @@
 @import '../../style/mixins.scss';
 
 .Contact {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +31,19 @@
       color: rgb(255, 54, 252);
       text-shadow: 3px 3px 3px rgba(62, 62, 62, 0.9);
     }
+  }
+  &__actions {
+    @media (max-width: $media-tablets) {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+    }
+  }
+}
+
+.contact-tel {
+  @media (max-width: $media-tablets) {
+    margin-bottom: 15px;
   }
 }
 
@@ -73,5 +87,10 @@
       background-color: #990f34;
       @include crossBrowser(transform, translateY(4px));
     }
+  }
+
+  @media (max-width: $media-small-desktops) {
+    width: 75px;
+    padding: 4px 0px;
   }
 }
