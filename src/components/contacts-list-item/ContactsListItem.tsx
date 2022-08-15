@@ -1,15 +1,12 @@
 import { useAppDispatch } from 'hooks/redux-hooks';
-import { FC, useMemo } from 'react';
+import { FC, useMemo, useState } from 'react';
 import { deleteContact } from 'store/reducers/users/usersSlice';
-import {
-  setContactActiveModal,
-  setTypeContactsModal,
-} from 'store/reducers/modals/modalSlice';
 import { IContacts } from 'types/IContacts';
 import validateNumber from 'helpers/validateNumber';
 import useAuth from 'hooks/use-auth';
 import './ContactsListItem.scss';
-import ContactsAddChangeForm from '../contacts-add-change-form/ContactsAddChangeForm';
+import Modal from 'components/modal/Modal';
+import ContactsChangeForm from 'components/contacts-add-change-form/ContactsChangeForm';
 
 type IContact = {
   contact: IContacts;
@@ -17,6 +14,7 @@ type IContact = {
 
 const ContactsListItem: FC<IContact> = ({ contact }) => {
   const dispatch = useAppDispatch();
+  const [activeModal, setActiveModal] = useState<boolean>(false);
 
   const { user } = useAuth();
   const { id, firstName, secondName, email, number } = contact;
@@ -25,21 +23,8 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
   const onRemoveContact = (id: number) => {
     if (user) {
       const newContacts = user.contacts.filter((ct) => ct.id !== id);
-      console.log(newContacts);
-
       dispatch(deleteContact(newContacts));
     }
-  };
-
-  const onModal = (e: React.SyntheticEvent<EventTarget>) => {
-    const target = e.target;
-    if (!(target instanceof HTMLButtonElement)) {
-      return;
-    }
-
-    if (target.dataset.type)
-      dispatch(setTypeContactsModal(target.dataset.type));
-    dispatch(setContactActiveModal(true));
   };
 
   return (
@@ -56,13 +41,22 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
         </a>
       </div>
       <div>
-        <ContactsAddChangeForm typeModal='change' contact={contact} />
+        <button
+          className='Contact-btn Contact-btn--change'
+          type='button'
+          onClick={() => setActiveModal(true)}
+        >
+          Change
+        </button>
         <button
           className='Contact-btn Contact-btn--delete'
           onClick={() => onRemoveContact(id)}
         >
           Remove
         </button>
+        <Modal activeModal={activeModal} setActiveModal={setActiveModal}>
+          <ContactsChangeForm contact={contact} />
+        </Modal>
       </div>
     </div>
   );

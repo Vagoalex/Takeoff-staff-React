@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import showToast from 'helpers/showToast';
 import AuthForm from 'components/auth-form/AuthForm';
 import { setIsAuth } from 'store/reducers/auth/authSlice';
-import { setAuthActiveModal } from 'store/reducers/modals/modalSlice';
+import { setAuthActiveModal } from 'store/reducers/auth/authSlice';
 import { setAuthUser, setAuthUserId } from 'store/reducers/users/usersSlice';
 import { selectUsers } from 'store/selectors/selectors';
 

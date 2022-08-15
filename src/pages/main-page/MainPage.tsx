@@ -19,30 +19,32 @@ const MainPage: FC = () => {
   };
 
   return (
-    <motion.section
-      className='MainPage wrapper'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{
-        duration: 0.8,
-      }}
-    >
-      <div className='MainPage__container content'>
-        <div className='content-nav'>
-          <h2 className='content-nav__title'>
-            Welcome,{' '}
-            <span className='content-nav__title--username'>
-              {user?.username}
-            </span>
-          </h2>
-          <Link to='/login' className='content-nav__button' onClick={logOut}>
-            Log out
-          </Link>
+    <>
+      <motion.section
+        className='MainPage wrapper'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{
+          duration: 0.8,
+        }}
+      >
+        <div className='MainPage__container content'>
+          <div className='content-nav'>
+            <h2 className='content-nav__title'>
+              Welcome,{' '}
+              <span className='content-nav__title--username'>
+                {user?.username}
+              </span>
+            </h2>
+            <Link to='/login' className='content-nav__button' onClick={logOut}>
+              Log out
+            </Link>
+          </div>
+          <Contacts />
         </div>
-        <Contacts />
-      </div>
-    </motion.section>
+      </motion.section>
+    </>
   );
 };
 

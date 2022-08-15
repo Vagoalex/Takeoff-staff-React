@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
-import { setAuthActiveModal } from 'store/reducers/modals/modalSlice';
+import { setAuthActiveModal } from 'store/reducers/auth/authSlice';
 import { selectActiveModal } from 'store/selectors/selectors';
 import modalClasses from './modalClasses';
 import './AuthModal.scss';
