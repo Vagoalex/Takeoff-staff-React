@@ -24,7 +24,7 @@ const Contacts: FC = () => {
               Add contact
             </button>
             <Modal activeModal={activeModal} setActiveModal={setActiveModal}>
-              <ContactsAddForm activeModal={activeModal} />
+              <ContactsAddForm setActiveModal={setActiveModal} />
             </Modal>
           </div>
           <ContactsList inputText={inputText} />

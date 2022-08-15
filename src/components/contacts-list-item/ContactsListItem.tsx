@@ -64,7 +64,10 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
           Remove
         </button>
         <Modal activeModal={activeModal} setActiveModal={setActiveModal}>
-          <ContactsChangeForm contact={contact} />
+          <ContactsChangeForm
+            contact={contact}
+            setActiveModal={setActiveModal}
+          />
         </Modal>
       </div>
     </motion.div>

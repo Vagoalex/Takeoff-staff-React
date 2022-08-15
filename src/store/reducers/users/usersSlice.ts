@@ -33,16 +33,19 @@ const contactsSlice = createSlice({
         user.id === updatedUser[0].id ? updatedUser : user
       );
     },
-    // addContact(state, action: PayloadAction<IUserContacts>) {
-    //   state.users[action.payload.id].contacts.push(action.payload.contact);
-    // },
-    // changeContact(state, action: PayloadAction<IUserContacts>) {
-    //   state.users[action.payload.id].contacts = state.users[
-    //     action.payload.id
-    //   ].contacts.map((contact) =>
-    //     contact.id === action.payload.id ? action.payload.contact : contact
-    //   );
-    // },
+    changeContact(state, action: PayloadAction<IContacts>) {
+      const u = state.users.filter((user) => user.id === state.authUserId);
+      const updatedUser = u[0].contacts.map((ct) => {
+        if (ct.id === action.payload.id) {
+          return action.payload;
+        }
+        return ct;
+      });
+
+      state.users.map((user) =>
+        user.id === updatedUser[0].id ? updatedUser : user
+      );
+    },
     deleteContact(state, action: PayloadAction<IContacts[]>) {
       state.users.map((user) => {
         if (user.id === state.authUserId) {
@@ -59,6 +62,7 @@ export const {
   setAuthUser,
   setAuthUserId,
   addContact,
+  changeContact,
   deleteContact,
 } = contactsSlice.actions;
 export default contactsSlice.reducer;

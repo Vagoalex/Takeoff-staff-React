@@ -2,15 +2,18 @@ import { FC } from 'react';
 import { useFormik, FormikProps } from 'formik';
 import { IContacts, IFormContact } from 'types/IContacts';
 import { useAppDispatch } from 'hooks/redux-hooks';
-
 import contactsFormValidate from 'helpers/contactsFormValidate';
+import createOrUpdateContact from 'helpers/createNewContact';
+import { changeContact } from 'store/reducers/users/usersSlice';
+import showToast from 'helpers/showToast';
 import './ContactsAddChangeForm.scss';
 
 type IContact = {
   contact: IContacts;
+  setActiveModal: (activeModal: boolean) => void;
 };
 
-const ContactsChangeForm: FC<IContact> = ({ contact }) => {
+const ContactsChangeForm: FC<IContact> = ({ contact, setActiveModal }) => {
   const dispatch = useAppDispatch();
 
   const formik: FormikProps<IFormContact> = useFormik<IFormContact>({
@@ -22,8 +25,19 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
     },
     validate: (values: IFormContact) => contactsFormValidate(values),
     onSubmit: (values: IFormContact, { resetForm }) => {
+      const ctObj = {
+        id: contact.id,
+        firstName: values.firstName,
+        secondName: values.secondName,
+        email: values.email,
+        number: values.number,
+      };
+      const updatedContact = createOrUpdateContact(ctObj);
+      console.log(updatedContact);
+      dispatch(changeContact(updatedContact));
       resetForm();
-      console.log(values);
+      showToast('success', `Contact ${values.firstName} has been updated`);
+      setActiveModal(false);
     },
   });
 
