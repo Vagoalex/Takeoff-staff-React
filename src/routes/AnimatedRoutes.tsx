@@ -4,7 +4,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Spinner from 'components/spinner/Spinner';
 import routes from './routes';
 import IAnimatedRoutes from 'types/routesTypes';
-import './AnimatedRoutes.scss';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
