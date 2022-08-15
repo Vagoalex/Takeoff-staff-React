@@ -8,8 +8,6 @@ import { motion } from 'framer-motion';
 import { setAuthUser } from 'store/reducers/users/usersSlice';
 
 import './MainPage.scss';
-import Modal from 'components/modal/Modal';
-import ContactsAddChangeForm from 'components/contacts-add-change-form/ContactsAddChangeForm';
 
 const MainPage: FC = () => {
   const { user } = useAuth();

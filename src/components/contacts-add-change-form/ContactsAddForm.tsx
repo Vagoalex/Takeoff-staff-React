@@ -1,30 +1,18 @@
-import { FC } from 'react';
 import { useFormik, FormikProps } from 'formik';
-import { IContacts, IFormContact } from 'types/IContacts';
+import { IFormContact } from 'types/IContacts';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
-import Modal from 'components/modal/Modal';
-import { setContactActiveModal } from 'store/reducers/modals/modalSlice';
 import contactsFormValidate from 'helpers/contactsFormValidate';
 import './ContactsAddChangeForm.scss';
-import {
-  selectActiveAddContactModal,
-  selectModalContact,
-  selectTypeContactsModal,
-} from 'store/selectors/selectors';
 
-const ContactsAddChangeForm = () => {
+const ContactsAddForm = () => {
   const dispatch = useAppDispatch();
-
-  const activeModal = useAppSelector(selectActiveAddContactModal);
-  const typeModal = useAppSelector(selectTypeContactsModal);
-  const modalContact = useAppSelector(selectModalContact);
 
   const formik: FormikProps<IFormContact> = useFormik<IFormContact>({
     initialValues: {
-      firstName: modalContact.firstName,
-      secondName: modalContact.secondName,
-      email: modalContact.email,
-      number: modalContact.number,
+      firstName: '',
+      secondName: '',
+      email: '',
+      number: '',
     },
     validate: (values: IFormContact) => contactsFormValidate(values),
     onSubmit: (values: IFormContact, { resetForm }) => {
@@ -33,10 +21,9 @@ const ContactsAddChangeForm = () => {
     },
   });
 
-  console.log(activeModal, typeModal, modalContact);
   return (
     <div className='ContactsForm-container'>
-      <h2>{typeModal === 'add' ? 'Add contact' : 'Change'}</h2>
+      <h2>Add contact</h2>
       <form className='ContactsForm' onSubmit={formik.handleSubmit}>
         <div className='ContactsForm__elements'>
           <div className='ContactsForm-field'>
@@ -138,11 +125,11 @@ const ContactsAddChangeForm = () => {
           }`}
           type='submit'
         >
-          {typeModal === 'add' ? 'Add' : 'Save'}
+          Add
         </button>
       </form>
     </div>
   );
 };
 
-export default ContactsAddChangeForm;
+export default ContactsAddForm;

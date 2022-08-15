@@ -1,19 +1,20 @@
 import { useAppDispatch } from 'hooks/redux-hooks';
-import { FC, useMemo } from 'react';
+import { FC, useMemo, useState } from 'react';
 import { deleteContact } from 'store/reducers/users/usersSlice';
-import { setModalContact } from 'store/reducers/modals/modalSlice';
 import { IContacts } from 'types/IContacts';
 import validateNumber from 'helpers/validateNumber';
 import useAuth from 'hooks/use-auth';
 import './ContactsListItem.scss';
+import Modal from 'components/modal/Modal';
+import ContactsChangeForm from 'components/contacts-add-change-form/ContactsChangeForm';
 
 type IContact = {
   contact: IContacts;
-  onModal: (e: React.SyntheticEvent<EventTarget>) => void;
 };
 
-const ContactsListItem: FC<IContact> = ({ contact, onModal }) => {
+const ContactsListItem: FC<IContact> = ({ contact }) => {
   const dispatch = useAppDispatch();
+  const [activeModal, setActiveModal] = useState<boolean>(false);
 
   const { user } = useAuth();
   const { id, firstName, secondName, email, number } = contact;
@@ -22,8 +23,6 @@ const ContactsListItem: FC<IContact> = ({ contact, onModal }) => {
   const onRemoveContact = (id: number) => {
     if (user) {
       const newContacts = user.contacts.filter((ct) => ct.id !== id);
-      console.log(newContacts);
-
       dispatch(deleteContact(newContacts));
     }
   };
@@ -45,11 +44,7 @@ const ContactsListItem: FC<IContact> = ({ contact, onModal }) => {
         <button
           className='Contact-btn Contact-btn--change'
           type='button'
-          data-type='change'
-          onClick={(e) => {
-            dispatch(setModalContact(contact));
-            onModal(e);
-          }}
+          onClick={() => setActiveModal(true)}
         >
           Change
         </button>
@@ -59,6 +54,9 @@ const ContactsListItem: FC<IContact> = ({ contact, onModal }) => {
         >
           Remove
         </button>
+        <Modal activeModal={activeModal} setActiveModal={setActiveModal}>
+          <ContactsChangeForm contact={contact} />
+        </Modal>
       </div>
     </div>
   );

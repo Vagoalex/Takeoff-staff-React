@@ -1,35 +1,17 @@
 import { FC } from 'react';
-import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
-import {
-  setContactActiveModal,
-  setModalContact,
-} from 'store/reducers/modals/modalSlice';
-import { selectActiveAddContactModal } from 'store/selectors/selectors';
 import './Modal.scss';
 
 interface ModalProps {
+  activeModal: boolean;
+  setActiveModal: (activeModal: boolean) => void;
   children: JSX.Element;
 }
 
-const Modal: FC<ModalProps> = ({ children }) => {
-  const dispatch = useAppDispatch();
-  const activeModal = useAppSelector(selectActiveAddContactModal);
-
-  const defaultContact = {
-    id: null,
-    firstName: '',
-    secondName: '',
-    email: '',
-    number: '',
-  };
-
+const Modal: FC<ModalProps> = ({ activeModal, setActiveModal, children }) => {
   return (
     <div
       className={activeModal ? 'modal modal--active' : 'modal'}
-      onClick={() => {
-        dispatch(setContactActiveModal(false));
-        dispatch(setModalContact(defaultContact));
-      }}
+      onClick={() => setActiveModal(false)}
     >
       <div
         className={

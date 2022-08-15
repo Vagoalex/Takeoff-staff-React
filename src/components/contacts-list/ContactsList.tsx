@@ -6,10 +6,9 @@ import './ContactsList.scss';
 
 interface ListProps {
   inputText: string;
-  onModal: (e: React.SyntheticEvent<EventTarget>) => void;
 }
 
-const ContactsList: FC<ListProps> = ({ inputText, onModal }) => {
+const ContactsList: FC<ListProps> = ({ inputText }) => {
   const { user } = useAuth();
 
   const filteredContacts = useMemo(
@@ -32,7 +31,7 @@ const ContactsList: FC<ListProps> = ({ inputText, onModal }) => {
     <>
       <div className='ContactsList'>
         {filteredContacts?.map((ct) => (
-          <ContactsListItem key={ct.id} contact={ct} onModal={onModal} />
+          <ContactsListItem key={ct.id} contact={ct} />
         ))}
       </div>
     </>
