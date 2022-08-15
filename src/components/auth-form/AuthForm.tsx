@@ -87,7 +87,7 @@ const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
 
         <button
           className={`AuthForm__btn ${
-            formik.touched.username && formik.errors.password
+            formik.errors.username || formik.errors.password
               ? 'AuthForm-button-disabled'
               : ''
           }`}

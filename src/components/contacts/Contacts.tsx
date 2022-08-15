@@ -1,28 +1,20 @@
-import React, { FC, useState } from 'react';
-import { useAppDispatch } from 'hooks/redux-hooks';
-import {
-  setContactActiveModal,
-  setTypeContactsModal,
-} from 'store/reducers/modals/modalSlice';
+import { FC, useState } from 'react';
+
 import ContactsFilter from '../contacts-filter/ContactsFilter';
-import Modal from '../contacts-modal/Modal';
-import ContactsAddForm from '../contacts-add-form/ContactsAddForm';
 import ContactsList from '../contacts-list/ContactsList';
+import ContactsAddChangeForm from '../contacts-add-change-form/ContactsAddChangeForm';
 import './Contacts.scss';
 
 const Contacts: FC = () => {
   const [inputText, setInputText] = useState<string>('');
-  const dispatch = useAppDispatch();
 
-  const onModal = (e: React.SyntheticEvent<EventTarget>) => {
-    const target = e.target;
-    if (!(target instanceof HTMLButtonElement)) {
-      return;
-    }
-
-    if (target.dataset.type)
-      dispatch(setTypeContactsModal(target.dataset.type));
-    dispatch(setContactActiveModal(true));
+  // Костыль
+  const initialContactValue = {
+    id: 2131412,
+    firstName: '',
+    secondName: '',
+    email: '',
+    number: 1,
   };
 
   return (
@@ -31,17 +23,10 @@ const Contacts: FC = () => {
         <h2 className='Contacts__title'>Contacts:</h2>
         <div className='Contacts__actions'>
           <ContactsFilter setInputText={setInputText} />
-          <button
-            className='Contacts-add-btn'
-            data-type='add'
-            type='button'
-            onClick={onModal}
-          >
-            Add contact
-          </button>
-          <Modal>
-            <ContactsAddForm />
-          </Modal>
+          <ContactsAddChangeForm
+            typeModal='add'
+            contact={initialContactValue}
+          />
         </div>
         <ContactsList inputText={inputText} />
       </div>
