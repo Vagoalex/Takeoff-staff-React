@@ -3,8 +3,13 @@ import { IFormContact } from 'types/IContacts';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import contactsFormValidate from 'helpers/contactsFormValidate';
 import './ContactsAddChangeForm.scss';
+import { FC } from 'react';
 
-const ContactsAddForm = () => {
+type AddFormProps = {
+  activeModal: boolean;
+};
+
+const ContactsAddForm: FC<AddFormProps> = ({ activeModal }) => {
   const dispatch = useAppDispatch();
 
   const formik: FormikProps<IFormContact> = useFormik<IFormContact>({
@@ -16,6 +21,7 @@ const ContactsAddForm = () => {
     },
     validate: (values: IFormContact) => contactsFormValidate(values),
     onSubmit: (values: IFormContact, { resetForm }) => {
+      if (!activeModal) resetForm();
       resetForm();
       console.log(values);
     },
@@ -23,7 +29,7 @@ const ContactsAddForm = () => {
 
   return (
     <div className='ContactsForm-container'>
-      <h2>Add contact</h2>
+      <h2 className='ContactsForm-container__title'>Add contact</h2>
       <form className='ContactsForm' onSubmit={formik.handleSubmit}>
         <div className='ContactsForm__elements'>
           <div className='ContactsForm-field'>
@@ -33,7 +39,7 @@ const ContactsAddForm = () => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.firstName && formik.errors.firstName
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='firstName'
@@ -44,7 +50,9 @@ const ContactsAddForm = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.firstName && formik.errors.firstName ? (
-              <div className='form-error-msg'>{formik.errors.firstName}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.firstName}
+              </div>
             ) : null}
           </div>
 
@@ -55,7 +63,7 @@ const ContactsAddForm = () => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.secondName && formik.errors.secondName
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='secondName'
@@ -66,7 +74,9 @@ const ContactsAddForm = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.secondName && formik.errors.secondName ? (
-              <div className='form-error-msg'>{formik.errors.secondName}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.secondName}
+              </div>
             ) : null}
           </div>
 
@@ -77,18 +87,20 @@ const ContactsAddForm = () => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.email && formik.errors.email
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='email'
               name='email'
-              type='email'
+              type='text'
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className='form-error-msg'>{formik.errors.email}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.email}
+              </div>
             ) : null}
           </div>
 
@@ -99,7 +111,7 @@ const ContactsAddForm = () => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.number && formik.errors.number
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='number'
@@ -110,7 +122,9 @@ const ContactsAddForm = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.number && formik.errors.number ? (
-              <div className='form-error-msg'>{formik.errors.number}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.number}
+              </div>
             ) : null}
           </div>
         </div>

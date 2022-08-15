@@ -29,7 +29,7 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
 
   return (
     <div className='ContactsForm-container'>
-      <h2>Change</h2>
+      <h2 className='ContactsForm-container__title'>Change</h2>
       <form className='ContactsForm' onSubmit={formik.handleSubmit}>
         <div className='ContactsForm__elements'>
           <div className='ContactsForm-field'>
@@ -39,7 +39,7 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.firstName && formik.errors.firstName
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='firstName'
@@ -50,7 +50,9 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.firstName && formik.errors.firstName ? (
-              <div className='form-error-msg'>{formik.errors.firstName}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.firstName}
+              </div>
             ) : null}
           </div>
 
@@ -61,7 +63,7 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.secondName && formik.errors.secondName
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='secondName'
@@ -72,7 +74,9 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.secondName && formik.errors.secondName ? (
-              <div className='form-error-msg'>{formik.errors.secondName}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.secondName}
+              </div>
             ) : null}
           </div>
 
@@ -83,7 +87,7 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.email && formik.errors.email
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='email'
@@ -94,7 +98,9 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className='form-error-msg'>{formik.errors.email}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.email}
+              </div>
             ) : null}
           </div>
 
@@ -105,7 +111,7 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
             <input
               className={`ContactsForm-field__input ${
                 formik.touched.number && formik.errors.number
-                  ? 'form-input-required'
+                  ? 'contacts-form-input-required'
                   : ''
               }`}
               id='number'
@@ -116,7 +122,9 @@ const ContactsChangeForm: FC<IContact> = ({ contact }) => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.number && formik.errors.number ? (
-              <div className='form-error-msg'>{formik.errors.number}</div>
+              <div className='contacts-form-error-msg'>
+                {formik.errors.number}
+              </div>
             ) : null}
           </div>
         </div>

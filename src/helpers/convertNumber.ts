@@ -1,4 +1,4 @@
-const validateNumber = (number: number) => {
+const convertNumber = (number: number) => {
   let value = '';
   number
     .toString()
@@ -9,4 +9,4 @@ const validateNumber = (number: number) => {
   return value;
 };
 
-export default validateNumber;
+export default convertNumber;

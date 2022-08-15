@@ -1,12 +1,12 @@
-import { useAppDispatch } from 'hooks/redux-hooks';
 import { FC, useMemo, useState } from 'react';
+import { useAppDispatch } from 'hooks/redux-hooks';
 import { deleteContact } from 'store/reducers/users/usersSlice';
 import { IContacts } from 'types/IContacts';
-import validateNumber from 'helpers/validateNumber';
+import convertNumber from 'helpers/convertNumber';
 import useAuth from 'hooks/use-auth';
-import './ContactsListItem.scss';
 import Modal from 'components/modal/Modal';
 import ContactsChangeForm from 'components/contacts-add-change-form/ContactsChangeForm';
+import './ContactsListItem.scss';
 
 type IContact = {
   contact: IContacts;
@@ -18,7 +18,7 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
 
   const { user } = useAuth();
   const { id, firstName, secondName, email, number } = contact;
-  const textNumber = useMemo(() => validateNumber(number), [number]);
+  const textNumber = useMemo(() => convertNumber(number), [number]);
 
   const onRemoveContact = (id: number) => {
     if (user) {
