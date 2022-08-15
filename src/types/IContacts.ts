@@ -6,9 +6,10 @@ export interface IContacts {
   number: number;
 }
 
-export interface IContact {
+export interface IFormContact {
+  id?: number;
   firstName: string;
   secondName: string;
   email: string;
-  number: number;
+  number: number | string;
 }

@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react';
+import { FC, useMemo } from 'react';
 import useAuth from 'hooks/use-auth';
 import ContactsListItem from 'components/contacts-list-item/ContactsListItem';
 
@@ -6,9 +6,10 @@ import './ContactsList.scss';
 
 interface ListProps {
   inputText: string;
+  onModal: (e: React.SyntheticEvent<EventTarget>) => void;
 }
 
-const ContactsList: FC<ListProps> = ({ inputText }) => {
+const ContactsList: FC<ListProps> = ({ inputText, onModal }) => {
   const { user } = useAuth();
 
   const filteredContacts = useMemo(
@@ -31,7 +32,7 @@ const ContactsList: FC<ListProps> = ({ inputText }) => {
     <>
       <div className='ContactsList'>
         {filteredContacts?.map((ct) => (
-          <ContactsListItem key={ct.id} contact={ct} />
+          <ContactsListItem key={ct.id} contact={ct} onModal={onModal} />
         ))}
       </div>
     </>

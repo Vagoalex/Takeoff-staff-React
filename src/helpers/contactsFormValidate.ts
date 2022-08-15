@@ -1,8 +1,8 @@
 import { FormikErrors } from 'formik';
-import { IContact } from 'types/IContacts';
+import { IFormContact } from 'types/IContacts';
 
-function contactsFormValidate(values: IContact) {
-  let errors: FormikErrors<IContact> = {};
+function contactsFormValidate(values: IFormContact) {
+  let errors: FormikErrors<IFormContact> = {};
   console.log(values);
   //   const withoutSpecialChars = /^[^-() /]*$/;
   //   const containsNumbers = /(?=.*[0-9])/;

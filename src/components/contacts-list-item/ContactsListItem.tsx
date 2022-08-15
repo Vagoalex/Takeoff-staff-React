@@ -1,21 +1,18 @@
 import { useAppDispatch } from 'hooks/redux-hooks';
 import { FC, useMemo } from 'react';
 import { deleteContact } from 'store/reducers/users/usersSlice';
-import {
-  setContactActiveModal,
-  setTypeContactsModal,
-} from 'store/reducers/modals/modalSlice';
+import { setModalContact } from 'store/reducers/modals/modalSlice';
 import { IContacts } from 'types/IContacts';
 import validateNumber from 'helpers/validateNumber';
 import useAuth from 'hooks/use-auth';
 import './ContactsListItem.scss';
-import ContactsAddChangeForm from '../contacts-add-change-form/ContactsAddChangeForm';
 
 type IContact = {
   contact: IContacts;
+  onModal: (e: React.SyntheticEvent<EventTarget>) => void;
 };
 
-const ContactsListItem: FC<IContact> = ({ contact }) => {
+const ContactsListItem: FC<IContact> = ({ contact, onModal }) => {
   const dispatch = useAppDispatch();
 
   const { user } = useAuth();
@@ -29,17 +26,6 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
 
       dispatch(deleteContact(newContacts));
     }
-  };
-
-  const onModal = (e: React.SyntheticEvent<EventTarget>) => {
-    const target = e.target;
-    if (!(target instanceof HTMLButtonElement)) {
-      return;
-    }
-
-    if (target.dataset.type)
-      dispatch(setTypeContactsModal(target.dataset.type));
-    dispatch(setContactActiveModal(true));
   };
 
   return (
@@ -56,7 +42,17 @@ const ContactsListItem: FC<IContact> = ({ contact }) => {
         </a>
       </div>
       <div>
-        <ContactsAddChangeForm typeModal='change' contact={contact} />
+        <button
+          className='Contact-btn Contact-btn--change'
+          type='button'
+          data-type='change'
+          onClick={(e) => {
+            dispatch(setModalContact(contact));
+            onModal(e);
+          }}
+        >
+          Change
+        </button>
         <button
           className='Contact-btn Contact-btn--delete'
           onClick={() => onRemoveContact(id)}

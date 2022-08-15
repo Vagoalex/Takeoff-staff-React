@@ -8,6 +8,8 @@ export const selectActiveAddContactModal = (state: RootState) =>
   state.modals.contactActiveModal;
 export const selectTypeContactsModal = (state: RootState) =>
   state.modals.typeContactsModal;
+export const selectModalContact = (state: RootState) =>
+  state.modals.modalContact;
 
 export const selectUsers = (state: RootState) => state.users.users;
 
