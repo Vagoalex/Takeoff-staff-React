@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import './Modal.scss';
 
 interface ModalProps {
@@ -27,4 +27,4 @@ const Modal: FC<ModalProps> = ({ activeModal, setActiveModal, children }) => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

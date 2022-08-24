@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, memo, useMemo } from 'react';
 import useAuth from 'hooks/use-auth';
 import ContactsListItem from 'components/contacts-list-item/ContactsListItem';
 
@@ -38,4 +38,4 @@ const ContactsList: FC<ListProps> = ({ inputText }) => {
   );
 };
 
-export default ContactsList;
+export default memo(ContactsList);
