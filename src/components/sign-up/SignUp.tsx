@@ -18,7 +18,7 @@ const SignUp = () => {
     if (person.length !== 0) {
       showToast(
         'error',
-        'Упс! пользователь с таким именем уже существует! Попробуйте другой!'
+        'Oops! A user with that name already exists! Try another one!'
       );
     } else {
       showToast('success', `User "${username}" has been created`);

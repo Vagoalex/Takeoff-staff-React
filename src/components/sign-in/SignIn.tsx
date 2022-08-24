@@ -37,10 +37,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-//  person[0]
-//    ? addNotification('success', `Добро пожаловать, ${username} `)
-//    : addNotification(
-//        'error',
-//        `Ошибка, пользователя ${username} не существует!`
-//      );
