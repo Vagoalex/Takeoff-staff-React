@@ -48,6 +48,24 @@
       bottom: 5px;
       right: 5px;
     }
+    @media (max-width: $media-small-phones) {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      right: 0;
+      bottom: 7px;
+      padding: 0 15px;
+
+      &::before {
+        content: '';
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        background-color: rgb(72, 72, 72);
+        left: 0;
+        top: -35%;
+      }
+    }
   }
 }
 
@@ -98,12 +116,20 @@
   }
   &--delete {
     background-color: #ba3156;
+    margin-left: 30px;
     &:hover {
       background-color: #ef1c54;
     }
     &:active {
       background-color: #990f34;
       @include crossBrowser(transform, translateY(4px));
+    }
+
+    @media (max-width: $media-small-desktops) {
+      margin-left: 20px;
+    }
+    @media (max-width: $media-tablets) {
+      margin-left: 10px;
     }
   }
 

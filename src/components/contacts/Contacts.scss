@@ -34,12 +34,14 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+
     .Contacts-add-btn {
       background-color: $second-color;
       -webkit-box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
       box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
-      border: 1px solid #ffffff;
+      border: 1px solid rgb(185, 185, 185);
       border-radius: 3px;
+      margin-left: 3px;
 
       width: 200px;
       padding: 4px 10px;
@@ -73,6 +75,12 @@
       @media (max-width: $media-tablets) {
         width: 170px;
         padding: 4px;
+      }
+      @media (max-width: $media-small-phones) {
+        margin-left: 2px;
+        font-size: 13px;
+        padding: 4px 0px;
+        width: 155px;
       }
     }
   }
