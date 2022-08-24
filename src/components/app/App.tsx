@@ -1,7 +1,8 @@
-import AuthModal from 'components/auth-form-modal/AuthModal';
 import { FC } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+
+import AuthModal from 'components/auth-form-modal/AuthModal';
 import AnimatedRoutes from 'routes/AnimatedRoutes';
 
 import './App.scss';

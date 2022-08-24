@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'hooks/redux-hooks';
 import { setAuthActiveModal } from 'store/reducers/auth/authSlice';
@@ -41,4 +42,4 @@ const AuthModal = () => {
   );
 };
 
-export default AuthModal;
+export default memo(AuthModal);
