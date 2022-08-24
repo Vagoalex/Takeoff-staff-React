@@ -8,7 +8,8 @@
   &__container {
     background: #0a0a0a;
     border: 1px solid rgba(56, 56, 56, 0.6);
-    border-radius: 18px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
     height: calc(100vh - 100px);
     position: relative;
     overflow-y: scroll;
@@ -63,6 +64,7 @@
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   padding: 10px 70px;
+  border-top-left-radius: 18px;
   &::after {
     content: '';
     background-color: #fff;
