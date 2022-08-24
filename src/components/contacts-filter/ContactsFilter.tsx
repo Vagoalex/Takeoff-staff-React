@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, memo, useState } from 'react';
 import styles from './ContactsFilter.module.scss';
 
 interface FilterProps {
@@ -24,4 +24,4 @@ const ContactsFilter: FC<FilterProps> = ({ setInputText }) => {
   );
 };
 
-export default ContactsFilter;
+export default memo(ContactsFilter);
