@@ -1,8 +1,10 @@
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
+
 import ContactsFilter from '../contacts-filter/ContactsFilter';
 import ContactsList from '../contacts-list/ContactsList';
-import Modal from '../modal/Modal';
 import ContactsAddForm from '../contacts-add-change-form/ContactsAddForm';
+import Modal from '../modal/Modal';
+
 import './Contacts.scss';
 
 const Contacts: FC = () => {
@@ -34,4 +36,4 @@ const Contacts: FC = () => {
   );
 };
 
-export default Contacts;
+export default memo(Contacts);
